@@ -6,8 +6,5 @@ Rails.application.routes.draw do
   get("/scissors", { :controller => "rps", :action => "scissors" })
 
   get("/", { :controller => "rps", :action => "home"})
-  # /rps/:move
-  # ("rock", "scissors")
 
-  # /rps/rock
 end
