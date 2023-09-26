@@ -1,19 +1,19 @@
 class RpsController < ApplicationController
   def paper
     @random_move = ["rock", "paper", "scissors"].sample
-
+    paper_conditional
     render({ :template => "game_templates/paper" })
   end
 
   def rock
     @random_move = ["rock", "paper", "scissors"].sample
-
+  rock_conditional
     render({ :template => "game_templates/rock" })
   end
 
   def scissors
     @random_move = ["rock", "paper", "scissors"].sample
-
+    scissors_conditional
     render({ :template => "game_templates/scissors" })
   end
 
@@ -23,22 +23,22 @@ class RpsController < ApplicationController
 
   def rock_conditional 
     if @random_move == "scissors"
-      puts "We won!"
+      @rockman = "We won!"
     elsif @random_move == "paper"
-      puts "We lost!"
+      @rockman = "We lost!"
     elsif @random_move == "rock"
-      puts "We tied!"
+      @rockman = "We tied!"
     end
   end
   
   
   def scissors_conditional 
     if @random_move == "scissors"
-      puts "We tied!"
+      @scissorman = "We tied!"
     elsif @random_move == "paper"
-      puts "We won!"
+      @scissorman = "We won!"
     elsif @random_move == "rock"
-      puts "We lost!"
+      @scissorman = "We lost!"
     end
   end
   
@@ -52,9 +52,4 @@ class RpsController < ApplicationController
     end
   end
 
-  @random_move = ["rock", "paper", "scissors"].sample
-
-  # paper_conditional = @paperboi
-  rock_conditional = @rockman
-  scissors_conditional = @scissorman
 end
